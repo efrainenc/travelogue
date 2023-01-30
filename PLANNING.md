@@ -16,7 +16,7 @@ Wireframes:
 ![Main](https://i.gyazo.com/f2e41ff438d243c0a5f8d8f5dd77b558.png)
 
 Data Models (ERDs):
-![ERDs](https://i.gyazo.com/89f3a235720d3d545c709236af1209f6.png)
+![ERDs](https://i.gyazo.com/68ea96b12b3e6ff1c8bf77991d20e864.png)
 
 
 Milestones:
