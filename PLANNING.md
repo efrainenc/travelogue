@@ -1,27 +1,23 @@
 ## Project Planning Deliverables
 
-**You will review the following with your instructional team *BEFORE* you start to code.** 
+Scope: A Travel app that will help a user plan and prepare for trips. I should be able to implement Weather API and user authentication with Django allAuth (for sign up with social network accounts). Tackling allAuth now will set me up for my stretch goals which are implementing Google Calendar, Maps as well as currency exchange to further assist in the user travel planning.
 
-**You can submit your proposal by creating a New Issue within the following repository. Your instructional team will approve or give feedback through the comments.** 
-
-- **Scope:** What are you planning to build? What do you reasonably think you can implement in the time period?
-- **User Stories:** Who is your user? What features will your app have?
-- **Wireframes:** Sketch out what your core pages will look like and how they will work. Consider making a *paper prototype* to demonstrate and/or test key user interactions.
-- **Data Models:** Draw out the models and any associations for your project in an entity relationship diagram (ERD).
-- **Milestones:** Divide your work into parts - the most essential features for your MVP, features that are important but not essential, and features that can be saved for a later iteration. Create 3-5 major milestones with dates outlining when you expect essential features will be done.
-- **Feasibility Study (optional):** If you're using an external API or scraping a website, make sure you can get that data. If you're using a new language, framework, or tool, go through its getting started tutorial. ***We will ask to see your results.***
-
-
-Scope: A Travel app that will help a user plan and prepare for trips. I should be able to implement Weather API and user authentication with Django allAuth. Tackling allAuth now will set me up for my stretch goals which are implementing Google Calendar, Maps as well as currency exchange to further assist in the user travel planning.
-
-User Stories: The user would be any person that is trying to plan or prepare for a trip. They will be able to put in the destination and dates of the trip and it will display the weather during your trip and allow you to create lists/notes of things to do or bring on your trip.
+User Stories:
+As a user who likes to travel, in order to plan my next trip, when I am on the welcome page, I can choose to sign up or login. 
+Once logged in, I can then start planning a new trip by inputting my trips destination and dates then clicking 'Add Trip'. 
+Once a trip is added I can then click and view my trip and the weather so I can begin planning. 
+When viewing a trip I can also add a budget as well as create a list by categories of my choosing and additionally add items to the list.
+Once my trip is over I can then click 'End Trip' at the bottom to delete the trip.
 
 Wireframes:
-https://i.gyazo.com/1f19590091afb4304b93fd4fafd75545.png
+![Welcome](https://i.gyazo.com/e1480673b5ecd364b4934ef15499436a.png)
+![Login](https://i.gyazo.com/00c3aad6b6506c0b291f135282dc45e0.png)
+![Sign Up](https://i.gyazo.com/e56cbf59b0ee710bffc3d000f0deefcf.png)
+![Main](https://i.gyazo.com/f2e41ff438d243c0a5f8d8f5dd77b558.png)
 
+Data Models (ERDs):
+![ERDs](https://i.gyazo.com/89f3a235720d3d545c709236af1209f6.png)
 
-Data Models(ERDs):
-https://i.gyazo.com/89f3a235720d3d545c709236af1209f6.png
 
 Milestones:
 Mon: Start Auth + Models

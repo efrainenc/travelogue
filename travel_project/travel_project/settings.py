@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     # 'allauth.socialaccount.providers.apple',
     # 'allauth.socialaccount.providers.github',
+
+    'crispy_forms',
 ]
 
 SITE_ID = 1
@@ -157,3 +159,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'home'
+
+ACCOUNT_LOGOUT_REDIRECT_URL = 'welcome'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
