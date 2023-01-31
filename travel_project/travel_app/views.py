@@ -15,8 +15,10 @@ class About(TemplateView):
   template_name = 'about.html'
 
 # Trip Views
+
+# view all trips
 class TripList(TemplateView):
-  template_name = "trip_list.html"
+  template_name = "trips/trip_list.html"
   
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
@@ -26,12 +28,13 @@ class TripList(TemplateView):
 class TripCreate(CreateView):
   model = Trip
   fields = ['destination', 'start_date', 'end_date']
-  template_name = "trip_create.html"
+  template_name = "trips/trip_create.html"
   success_url = "/trips/"
 
+# view trips by id
 class TripDisplay(DetailView):
   model = User
-  template_name = 'trip_list.html'
+  template_name = 'trips/trip_list.html'
 
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
@@ -41,11 +44,11 @@ class TripDisplay(DetailView):
 
 class TripDetail(DetailView):
   model = Trip
-  template_name = "trip_detail.html"
+  template_name = "trips/trip_detail.html"
 
 class TripUpdate(UpdateView):
   model = Trip
-  template_name = "trip_update.html"
+  template_name = "trips/trip_update.html"
   fields = ['destination', 'start_date', 'end_date']
   
   def get_success_url(self):
@@ -54,5 +57,5 @@ class TripUpdate(UpdateView):
 
 class TripDelete(DeleteView):
   model = Trip
-  template_name = "trip_delete.html"
+  template_name = "trips/trip_delete.html"
   success_url = "/trips/"
