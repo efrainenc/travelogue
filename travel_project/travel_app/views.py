@@ -34,18 +34,23 @@ class TripCreate(CreateView):
   fields = ['destination', 'start_date', 'end_date']
   template_name = "trips/trip_create.html"
   success_url = "/trips/"
-
   # self.request.user.id
 
 class TripDetail(DetailView):
   model = Trip
   template_name = "trips/trip_detail.html"
 
+  def get_queryset(self): # so only current user can view
+    return self.model.objects.filter(user=self.request.user)
+
 # check current user on update
 class TripUpdate(UpdateView):
   model = Trip
   template_name = "trips/trip_update.html"
   fields = ['destination', 'start_date', 'end_date']
+
+  def get_queryset(self): # so only current user can view
+    return self.model.objects.filter(user=self.request.user)
   
   def get_success_url(self):
     return reverse('trip_detail', kwargs={'pk': self.object.pk})
@@ -54,6 +59,10 @@ class TripUpdate(UpdateView):
 class TripDelete(DeleteView):
   model = Trip
   template_name = "trips/trip_delete.html"
+  
+  def get_queryset(self): # so only current user can view
+    return self.model.objects.filter(user=self.request.user)
+
   success_url = "/trips/"
 
 
