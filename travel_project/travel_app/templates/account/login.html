@@ -7,6 +7,7 @@
   <div class="text-center">
     <h1>{% trans "Sign In" %}</h1>
     {% get_providers as socialaccount_providers %}
+
     {% if socialaccount_providers %}
     <p>{% trans "Login with socials" %}</p>
     <div class="socialaccount_ballot">
@@ -18,23 +19,26 @@
     {% include "socialaccount/snippets/login_extra.html" %}
     {% endif %}
   </div>
+
   <div class="row">
     <div class="col-md-4 offset-md-4">
       <form class="login" method="POST" action="{% url 'account_login' %}">
-          {% csrf_token %}
-          {{ form|crispy }}
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
-          <div class="d-grid">
-            <button class="primaryAction mt-3 btn btn-dark" type="submit">{% trans "Sign In" %}</button><br>
-            <a class="button text-center text-dark" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a><br>
-          </div>
-        </form>
-        <p class="text-center">
-          {% trans "Don't an account?" %}
-          <a href="{{ signup_url }}">{% trans "sign up" %}</a>.
-        </p>
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+
+        <div class="d-grid">
+          <button class="primaryAction mt-3 btn btn-dark" type="submit">{% trans "Sign In" %}</button><br>
+          <a class="button text-center text-dark" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a><br>
+        </div>
+      </form>
+      <p class="text-center">
+        {% trans "Don't an account?" %}
+        <a href="{{ signup_url }}">{% trans "sign up" %}</a>.
+      </p>
     </div>
   </div>
 {% endblock %}
