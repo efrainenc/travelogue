@@ -1,6 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="text-center">
-        <h1>Trip Detail</h1>
+{% if user.is_authenticated %}
+<div class="d-flex flex-column align-items-center">
+    <div class="detail__name">
+        <h1 class="title">{{trip.destination}}</h1>
     </div>
+    <div class="detail__container">
+        <div>
+            <p>{{trip.start_date}} - {{trip.end_date}}</p>
+        </div>
+        <a href="{% url 'trip_update' trip.pk %}" class="btn btn-dark">Update</a>
+        <div class="detail__about">
+            <h4 class="title is-4">List (hardcoded)</h4>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+        <a href="{% url 'trip_delete' trip.pk %}" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+{% else %}
+<h1 class="text-center"><a href="{% url 'account_login' %}">Sign In!</a></h1>
+{% endif %}
 {% endblock %}

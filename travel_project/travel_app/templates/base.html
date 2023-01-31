@@ -23,6 +23,7 @@
           {% if user.is_authenticated %}
           <div><a class="text-light" href="{% url 'home' %}">Home</a></div>
           <div><a class="text-light" href="{% url 'about' %}">About</a></div>
+          <div><a class="text-light" href="{% url 'trip_list' %}">Trips</a></div>
           <div><a class="text-light" href="{% url 'socialaccount_connections' %}">Settings</a></div>
           {% else %}
           <div><a class="text-light" href="{% url 'home' %}">Home</a></div>
@@ -33,9 +34,9 @@
       </div>
     </div>
     {% if messages %}
-      <div class="p-3">
+      <div>
         {% for message in messages %}
-          <div class="text-center border-bottom">{{message}}</div>
+          <div class="pb-2 text-center border-bottom">{{message}}</div>
         {% endfor %}
       </div>
     {% endif %}
