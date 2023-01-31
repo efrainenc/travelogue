@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load crispy_forms_filters %}
-{% block head_title %}Signup{% endblock %}
+{% block head_title %}{% trans "Signup" %}{% endblock %}
 {% block content %}
 <div class="text-center">
-    <h1>Sign Up</h1>
+    <h1>{% trans "Sign Up" %}</h1>
 </div>
 <div class="row">
     <div class="col-md-4 offset-md-4">
@@ -15,10 +15,12 @@
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
         <div class="d-grid mt-3">
-            <button class="btn btn-dark" type="submit">Sign Up</button>
+            <button class="btn btn-dark" type="submit">{% trans "Sign Up" %}</button>
         </div>
         </form>
-        <p class="text-center">Already have an account?<a href="{{ login_url }}">sign in</a>.</p>
+        <p class="text-center">{% trans "Already have an account?" %}
+            <a href="{{ login_url }}">{% trans "sign in" %}</a>.
+        </p>
     </div>
 </div>
 {% endblock %}

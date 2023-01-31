@@ -5,16 +5,17 @@
 {% block head_title %}Sign In{% endblock %}
 {% block content %}
   <div class="text-center">
-    <h1>Sign In</h1>
+    <h1>{% trans "Sign In" %}</h1>
     {% get_providers as socialaccount_providers %}
     {% if socialaccount_providers %}
-    <p>Login using socials</p>
+    <p>{% trans "Login with socials" %}</p>
     <div class="socialaccount_ballot">
       <div class="socialaccount_providers">
-        {% include "socialaccounts/provider_list.html" with process="login" %}
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
       </div>
-      <div class="login-or border-top border-bottom my-3">OR</div>
+      <div class="login-or border-top border-bottom my-3">{% trans 'or' %}</div>
     </div>
+    {% include "socialaccount/snippets/login_extra.html" %}
     {% endif %}
   </div>
   <div class="row">
@@ -26,12 +27,13 @@
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
           <div class="d-grid">
-            <button class="primaryAction mt-3 btn btn-dark" type="submit">Sign In</button><br>
-            <a class="button text-center text-dark" href="{% url 'account_reset_password' %}">Forgot Password?</a><br>
+            <button class="primaryAction mt-3 btn btn-dark" type="submit">{% trans "Sign In" %}</button><br>
+            <a class="button text-center text-dark" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a><br>
           </div>
         </form>
         <p class="text-center">
-          Don't an account?<a href="{{ signup_url }}">sign up</a>.
+          {% trans "Don't an account?" %}
+          <a href="{{ signup_url }}">{% trans "sign up" %}</a>.
         </p>
     </div>
   </div>
