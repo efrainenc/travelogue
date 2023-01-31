@@ -1,24 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-<div class="d-flex flex-column align-items-center">
-    <div class="detail__name">
+<div>
+    <div class="trip_destination text-center">
         <h1 class="title">{{trip.destination}}</h1>
     </div>
-    <div class="detail__container">
+    <div class="d-flex flex-column align-items-center detail__container">
         <div>
             <p>{{trip.start_date}} - {{trip.end_date}}</p>
         </div>
-        <a href="{% url 'trip_update' trip.pk %}" class="btn btn-dark">Update</a>
-        <div class="detail__about">
-            <h4 class="title is-4">List (hardcoded)</h4>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
-        </div>
-        <a href="{% url 'trip_delete' trip.pk %}" class="btn btn-danger">Delete</a>
+        <a href="{% url 'trip_update' trip.pk %}" class="btn btn-dark align-self-center text-center">Update</a>
+        <hr>
+        {% include "./lists/list_show.html" %}
+        <a href="{% url 'trip_delete' trip.pk %}" class="btn btn-danger align-self-center text-center">End Trip</a>
     </div>
 </div>
 {% else %}

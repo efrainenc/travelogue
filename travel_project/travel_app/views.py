@@ -18,13 +18,14 @@ class About(TemplateView):
 
 # Trip Views
 
-# view all trips
+# view current user trips
 class TripList(TemplateView):
+  model = User
   template_name = "trips/trip_list.html"
   
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
-    context["trips"] = Trip.objects.all()
+    context["trips"] = Trip.objects.filter(user_id= self.request.user.id)
     return context
 
 # set current user on create
@@ -34,23 +35,7 @@ class TripCreate(CreateView):
   template_name = "trips/trip_create.html"
   success_url = "/trips/"
 
-  def get_user(request): # TODO submit current user id in form on create
-    if request.user.is_authenticated:
-      object.user_id = request.user.id
-      current_user = request.user
-      print(current_user.id)
-
-
-# view trips by id
-class TripDisplay(DetailView):
-  model = User
-  template_name = 'trips/trip_list.html'
-
-  def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    print(self)
-    context["trips"] = Trip.objects.filter(user_id= self.object.id)
-    return context
+  # self.request.user.id
 
 class TripDetail(DetailView):
   model = Trip
@@ -70,3 +55,16 @@ class TripDelete(DeleteView):
   model = Trip
   template_name = "trips/trip_delete.html"
   success_url = "/trips/"
+
+
+# 'List' Views
+
+# view all lists
+class ShowListCategories(TemplateView):
+  medel = Trip
+  template_name = "trips/lists/list_show.html"
+  
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context["lists"] = ListCategory.objects.filter(trip_id= self.object.id)
+    return context

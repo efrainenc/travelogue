@@ -3,17 +3,20 @@
 {% if user.is_authenticated %}
   <div class="text-center">
     <h1 class="title">Your Trips</h1>
-    <h1 class="title pt-5">{{header}}</h1>
+    <hr>
     <a class="btn btn-dark" href="{% url 'trip_create' %}" >Start a new trip!</a>
     <div class="mt-4 gallery">
       {% for trip in trips %}
-      <a class="btn btn-dark" href="{% url 'trip_detail' trip.pk %}">
-        <div style="max-width: 350px; max-height: 500px;">
-          <div class="card-header">
-            <p class="card-header-title">{{trip.destination}}, {{trip.start_date}} - {{trip.end_date}}</p>
+        
+        <a class="btn btn-dark" href="{% url 'trip_detail' trip.pk %}">
+          <div style="max-width: 350px; max-height: 500px;">
+            <div>
+              <p>{{trip.destination}}</p>
+              <p>{{trip.start_date}} - {{trip.end_date}}</p>
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+        
       {% endfor %}
     </div>
   </div>

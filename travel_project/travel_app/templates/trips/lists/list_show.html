@@ -1,0 +1,11 @@
+{% block content %}
+  <div class="text-center">
+    <h2 class="title">Your lists:</h2>
+    <a class="btn btn-dark" href="" >Create a list +</a>
+    <div class="mt-4 gallery">
+      {% for list in lists %}
+        <p>{{list.category}}</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
