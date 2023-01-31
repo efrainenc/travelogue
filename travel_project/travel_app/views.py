@@ -11,3 +11,5 @@ class Home(TemplateView):
 
 class About(TemplateView):
   template_name = 'about.html'
+
+
