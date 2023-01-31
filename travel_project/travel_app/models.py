@@ -5,11 +5,12 @@ from django.contrib.auth.models import User
 class Trip(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   destination = models.CharField(max_length=150)
-  dates = models.CharField(max_length=500, blank=True, null=True)
+  start_date = models.DateField(blank=True, null=True)
+  end_date = models.DateField(blank=True, null=True)
   created_at = models.DateTimeField(auto_now_add=True)
   
   def __str__(self):
-    return self.destination
+    return self.user.username
 
   class Meta:
     ordering = ['created_at']
