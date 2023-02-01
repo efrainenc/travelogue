@@ -16,11 +16,15 @@
             <a class="btn btn-dark" href="{% url 'list_create' trip.pk %}" >Create a list +</a>
             <div class="mt-4 gallery">
               {% for list in lists %}
-                <li><a href="{% url 'list_delete' trip.pk list.pk %}" class="btn btn-danger align-self-center text-center">X</a>{{list.category}}</li>
+                <li>
+                  {{list.category}}
+                  <a href="{% url 'list_update' trip.pk list.pk %}" class="btn btn-dark">Update</a>
+                  <a href="{% url 'list_delete' trip.pk list.pk %}" class="btn btn-danger">X</a>
+                </li>
               {% endfor %}
             </div>
           </div>
-        <a href="{% url 'trip_delete' trip.pk %}" class="btn btn-danger align-self-center text-center">End Trip</a>
+        <a href="{% url 'trip_delete' trip.pk %}" class="mt-4 btn btn-danger align-self-center text-center">End Trip</a>
     </div>
 </div>
 {% else %}

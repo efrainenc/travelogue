@@ -87,6 +87,15 @@ class ListCreate(CreateView):
     form.instance.trip_id = self.kwargs['pk']
     return super().form_valid(form)
 
+class ListUpdate(UpdateView):
+  model = ListCategory
+  template_name = "trips/lists/list_update.html"
+  fields = ['category']
+  success_url = "/trips/"
+
+  def get_queryset(self): # so only current trip can view
+    return self.model.objects.filter(trip_id= self.kwargs['trip_pk'])
+
 class ListDelete(DeleteView):
   model = ListCategory
   template_name = "trips/lists/list_delete.html"
