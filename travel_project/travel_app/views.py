@@ -40,6 +40,12 @@ class TripDetail(DetailView):
   model = Trip
   template_name = "trips/trip_detail.html"
 
+  # view lists from trip detail
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context["lists"] = ListCategory.objects.filter(trip_id= self.object.id)
+    return context
+
   def get_queryset(self): # so only current user can view
     return self.model.objects.filter(user=self.request.user)
 
@@ -59,7 +65,7 @@ class TripUpdate(UpdateView):
 class TripDelete(DeleteView):
   model = Trip
   template_name = "trips/trip_delete.html"
-  
+
   def get_queryset(self): # so only current user can view
     return self.model.objects.filter(user=self.request.user)
 
@@ -68,12 +74,8 @@ class TripDelete(DeleteView):
 
 # 'List' Views
 
-# view all lists
-class ShowListCategories(TemplateView):
-  medel = Trip
-  template_name = "trips/lists/list_show.html"
-  
-  def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    context["lists"] = ListCategory.objects.filter(trip_id= self.object.id)
-    return context
+class ListCreate(CreateView):
+  model = ListCategory
+  fields = ['category']
+  template_name = "trips/lists/list_create.html"
+  success_url = "/trips/"

@@ -10,4 +10,6 @@ urlpatterns = [
     path('trips/<int:pk>', views.TripDetail.as_view(), name="trip_detail"),
     path('trips/<int:pk>/update',views.TripUpdate.as_view(), name="trip_update"),
     path('trips/<int:pk>/delete',views.TripDelete.as_view(), name="trip_delete"),
+    path('list/new/', views.ListCreate.as_view(), name="list_create"),
+    path('list/', views.ShowListCategories.as_view(), name="trip_detail"),
 ]

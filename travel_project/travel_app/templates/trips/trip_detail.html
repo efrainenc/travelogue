@@ -11,7 +11,15 @@
         </div>
         <a href="{% url 'trip_update' trip.pk %}" class="btn btn-dark align-self-center text-center">Update</a>
         <hr>
-        {% include "./lists/list_show.html" %}
+        <div class="text-center">
+            <h2 class="title">Your lists:</h2>
+            <a class="btn btn-dark" href="{% url 'list_create' %}" >Create a list +</a>
+            <div class="mt-4 gallery">
+              {% for list in lists %}
+                <p>{{list.category}}</p>
+              {% endfor %}
+            </div>
+          </div>
         <a href="{% url 'trip_delete' trip.pk %}" class="btn btn-danger align-self-center text-center">End Trip</a>
     </div>
 </div>

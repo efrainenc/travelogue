@@ -1,9 +1,9 @@
 {% block content %}
   <div class="text-center">
     <h2 class="title">Your lists:</h2>
-    <a class="btn btn-dark" href="" >Create a list +</a>
+    <a class="btn btn-dark" href="{% url 'list_create' %}" >Create a list +</a>
     <div class="mt-4 gallery">
-      {% for list in lists %}
+      {% for listcategory in lists %}
         <p>{{list.category}}</p>
       {% endfor %}
     </div>
