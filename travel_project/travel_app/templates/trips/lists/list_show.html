@@ -3,7 +3,7 @@
     <h2 class="title">Your lists:</h2>
     <a class="btn btn-dark" href="{% url 'list_create' %}" >Create a list +</a>
     <div class="mt-4 gallery">
-      {% for listcategory in lists %}
+      {% for list in lists %}
         <p>{{list.category}}</p>
       {% endfor %}
     </div>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex flex-column align-items-center">
+    {% if user.is_authenticated %}
+    <h1 class="title">Are you sure you want to delete the list {{list.category}}?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="buttons">
+            <input class="btn btn-danger" type="submit" value="Confirm" />
+            <a class="btn btn-dark" href="">Cancel</a>
+        </div>
+    </form>
+    {% else %}
+    <h1 class="text-center"><a href="{% url 'account_login' %}">Sign In!</a></h1>
+    {% endif %}
+</div>
+{% endblock %}
