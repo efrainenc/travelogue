@@ -12,6 +12,18 @@
         <a href="{% url 'trip_update' trip.pk %}" class="btn btn-dark align-self-center text-center">Update</a>
         <hr>
         <div class="text-center">
+            <h2 class="title">Your Budgets:</h2>
+            <a class="btn btn-dark" href="{% url 'budget_create' trip.pk %}" >Create a budget +</a>
+            <div class="mt-4 gallery">
+              {% for budget in budgets %}
+                <div>
+                  <p>{{budget.budget}}</p>
+                  <p>{{budget.user_currency}}->{{budget.trip_currency}}</p>
+                  <a href="{% url 'budget_update' trip.pk budget.pk %}" class="btn btn-dark">Edit</a>
+                  <a href="{% url 'budget_delete' trip.pk budget.pk %}" class="btn btn-danger">X</a>
+                </div>
+              {% endfor %}
+            </div>
             <h2 class="title">Your lists:</h2>
             <a class="btn btn-dark" href="{% url 'list_create' trip.pk %}" >Create a list +</a>
             <div class="mt-4 gallery">

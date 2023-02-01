@@ -47,7 +47,9 @@ class TripDetail(DetailView):
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     context["lists"] = ListCategory.objects.filter(trip_id= self.object.id)
+    context["budgets"] = Budget.objects.filter(trip_id= self.object.id)
     context["items"] = ListItem.objects.all()
+    # ^^ not very scalable, becomes issue to loop though all items of all users, maybe add user field to li
     # ids = [obj.id for obj in context['lists']]
     # print(f'ALL ids:{ids}')
     #print(f'each id:{id}')
@@ -140,3 +142,34 @@ class ItemDelete(DeleteView):
 
   # def get_queryset(self): # so only current list can view
   #   return self.model.objects.filter(category_id= self.kwargs['list_pk'])
+
+
+
+
+# 'Budget' Views
+class BudgetCreate(CreateView):
+  model = Budget
+  fields = ['user_currency', 'trip_currency', 'budget']
+  template_name = "trips/budgets/budget_create.html"
+  success_url = "/trips/"
+
+  def form_valid(self, form):
+    form.instance.trip_id = self.kwargs['pk']
+    return super().form_valid(form)
+
+class BudgetUpdate(UpdateView):
+  model = Budget
+  template_name = "trips/budgets/budget_update.html"
+  fields = ['user_currency', 'trip_currency', 'budget']
+  success_url = "/trips/"
+
+  def get_queryset(self): # so only current trip can view
+    return self.model.objects.filter(trip_id= self.kwargs['trip_pk'])
+
+class BudgetDelete(DeleteView):
+  model = Budget
+  template_name = "trips/budgets/budget_delete.html"
+  success_url = "/trips/"
+
+  def get_queryset(self): # so only current trip can view
+    return self.model.objects.filter(trip_id= self.kwargs['trip_pk'])
