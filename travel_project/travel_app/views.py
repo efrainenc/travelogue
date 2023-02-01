@@ -34,7 +34,10 @@ class TripCreate(CreateView):
   fields = ['destination', 'start_date', 'end_date']
   template_name = "trips/trip_create.html"
   success_url = "/trips/"
-  # self.request.user.id
+
+  def form_valid(self, form):
+    form.instance.user_id = self.request.user.id
+    return super().form_valid(form)
 
 class TripDetail(DetailView):
   model = Trip

@@ -4,7 +4,6 @@
 <h1 class="text-center">Start a trip!</h1>
 <div class='d-flex justify-content-center'>
     <form method = "post">
-      <input name="{{user.id}}" value="{{user.id}}"/> <!-- TODO find way to submit current user_id in form -->
       {% csrf_token %} 
       {{form.as_p}} 
       <button class='mt-3 btn btn-dark' type="submit" value="Submit">Submit</button>

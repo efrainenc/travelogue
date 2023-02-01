@@ -5,9 +5,9 @@
     <h1 class="title">Your Trips</h1>
     <hr>
     <a class="btn btn-dark" href="{% url 'trip_create' %}" >Start a new trip!</a>
+    <hr>
     <div class="mt-4 gallery">
       {% for trip in trips %}
-        
         <a class="btn btn-dark" href="{% url 'trip_detail' trip.pk %}">
           <div style="max-width: 350px; max-height: 500px;">
             <div>
@@ -16,7 +16,6 @@
             </div>
           </div>
         </a>
-        
       {% endfor %}
     </div>
   </div>
