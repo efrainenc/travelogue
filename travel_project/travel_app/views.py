@@ -41,12 +41,16 @@ class TripCreate(CreateView):
 
 class TripDetail(DetailView):
   model = Trip
-  template_name = "trips/trip_detail.html"
+  template_name = "trips/trip_detail.html" 
 
   # view lists from trip detail
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     context["lists"] = ListCategory.objects.filter(trip_id= self.object.id)
+    context["items"] = ListItem.objects.all()
+    # ids = [obj.id for obj in context['lists']]
+    # print(f'ALL ids:{ids}')
+    #print(f'each id:{id}')
     return context
 
   def get_queryset(self): # so only current user can view
@@ -103,3 +107,36 @@ class ListDelete(DeleteView):
 
   def get_queryset(self): # so only current trip can view
     return self.model.objects.filter(trip_id= self.kwargs['trip_pk'])
+
+
+# 'Item' Views
+
+class ItemCreate(CreateView):
+  model = ListItem
+  fields = ['list_item']
+  template_name = "trips/lists/items/item_create.html"
+  success_url = "/trips/"
+
+  # def get_queryset(self): # so only current list can view
+  #   return self.model.objects.filter(category_id= self.kwargs['item_pk'])
+  
+  def form_valid(self, form):
+    form.instance.category_id = self.kwargs['list_pk']
+    return super().form_valid(form)
+
+class ItemUpdate(UpdateView):
+  model = ListItem
+  template_name = "trips/lists/items/item_update.html"
+  fields = ['list_item']
+  success_url = "/trips/"
+
+  # def get_queryset(self): # so only current list can view
+  #   return self.model.objects.filter(category_id= self.kwargs['item_pk'])
+
+class ItemDelete(DeleteView):
+  model = ListItem
+  template_name = "trips/lists/items/item_delete.html"
+  success_url = "/trips/"
+
+  # def get_queryset(self): # so only current list can view
+  #   return self.model.objects.filter(category_id= self.kwargs['list_pk'])

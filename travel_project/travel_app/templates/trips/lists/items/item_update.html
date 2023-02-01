@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="d-flex flex-column align-items-center">
+  <h1 class="pt-3">Update {{item.list_item}}</h1>
+  <form action="" method="post" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    {{form.as_p}} 
+    <input class="btn btn-dark" type="submit" value="Submit" />
+  </form>
+  {% else %}
+  <h1 class="text-center"><a href="{% url 'account_login' %}">Sign In!</a></h1>
+  {% endif %}
+</div>
+{% endblock %}

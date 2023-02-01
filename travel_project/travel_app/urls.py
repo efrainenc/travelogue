@@ -13,4 +13,7 @@ urlpatterns = [
     path('trips/<int:pk>/list/new/', views.ListCreate.as_view(), name="list_create"),
     path('trips/<int:trip_pk>/list/<int:pk>/update',views.ListUpdate.as_view(), name="list_update"),
     path('trips/<int:trip_pk>/list/<int:pk>/delete',views.ListDelete.as_view(), name="list_delete"),
+    path('trips/<int:trip_pk>/list/<int:list_pk>/item/new', views.ItemCreate.as_view(), name="item_create"),
+    path('trips/<int:trip_pk>/list/<int:list_pk>/item/<int:pk>/update',views.ItemUpdate.as_view(), name="item_update"),
+    path('trips/<int:trip_pk>/list/<int:list_pk>/item/<int:pk>/delete',views.ItemDelete.as_view(), name="item_delete"),
 ]

@@ -40,7 +40,7 @@ class ListItem(models.Model):
   list_item = models.CharField(max_length=500, blank=True, null=True)
 
   def __str__(self):
-    return self.category
+    return self.list_item
 
   class Meta:
     ordering = ['category']
