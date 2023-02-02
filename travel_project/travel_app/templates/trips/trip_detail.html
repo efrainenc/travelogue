@@ -1,65 +1,70 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-<div>
-    <div class="trip_destination text-center">
+<div class="">
+    <div class="trip_destination d-flex justify-content-center">
         <h1 class="title">{{trip.destination}}</h1>
+        <a href="{% url 'trip_update' trip.pk %}" class="align-self-center m-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="dark" class="bi bi-pen" viewBox="0 0 16 16">
+            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+          </svg>
+        </a>
     </div>
     <div class="d-flex flex-column align-items-center detail__container">
         <div>
             <p>{{trip.start_date}} - {{trip.end_date}}</p>
         </div>
-        <a href="{% url 'trip_update' trip.pk %}" class="btn btn-dark align-self-center text-center">Update</a>
-        <hr>
-        <div>
-          <h2 class="text-center">Weather API</h2>
-          <form method="GET">
-            <input type="text" 
-            name="destination"
-            placeholder="City, State/Country">
-            <input type="text" 
-            name="start_date" 
-            placeholder="YYYY-MM-DD">
-            <input type="text" 
-            name="end_date" 
-            placeholder="YYYY-MM-DD">
-            <input type="submit" 
-            value="submit"
-            class="btn btn-dark">
-          </form>
-            <ul>
-              {% for item in data %}
-                <li>{{ item.address }}</li>
-              {% endfor %}
-            </ul>
-        </div>
         <hr>
         <div class="text-center">
-            <h2 class="title">Budgets:<a class="btn btn-dark" href="{% url 'budget_create' trip.pk %}" >+</a></h2>
-            <div class="mt-4 gallery">
+            <h2 class="title">Budgets
+              <a class="text-decoration-none text-success" 
+              href="{% url 'budget_create' trip.pk %}">+</a>
+            </h2>
+            <hr>
+            <div class="mt-4">
               {% for budget in budgets %}
                 <div class="">
-                  <p>{{budget.budget}}{{budget.user_currency}}</p>
-                  <p>{{budget.trip_currency}}</p>
-                  <a href="{% url 'budget_update' trip.pk budget.pk %}" class="btn btn-dark">Edit</a>
-                  <a href="{% url 'budget_delete' trip.pk budget.pk %}" class="btn btn-danger">X</a>
+                  <p>{{budget.budget}} {{budget.user_currency}}-><span>{{budget.trip_currency}}</span>
+                  <a href="{% url 'budget_update' trip.pk budget.pk %}" class="m-2 text-decoration-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="dark" class="bi bi-pen" viewBox="0 0 16 16">
+                      <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                    </svg>
+                  </a>
+                  <a href="{% url 'budget_delete' trip.pk budget.pk %}" class="text-decoration-none text-danger">X</a>
+                </p>
                 </div>
               {% endfor %}
             </div>
-            <h2 class="title">Lists:<a class="btn btn-dark" href="{% url 'list_create' trip.pk %}" >+</a></h2>
-            <div class="mt-4 gallery">
+            <h1>Lists
+              <a class="text-decoration-none text-success" 
+              href="{% url 'list_create' trip.pk %}" >+</a>
+            </h2>
+            <hr>
+              <div class="mt-4">
               {% for list in lists %}
-                <div class="m-4">
-                  {{list.category}}
-                  <a href="{% url 'list_update' trip.pk list.pk %}" class="btn btn-dark">Edit</a>
-                  <a href="{% url 'list_delete' trip.pk list.pk %}" class="btn btn-danger">X</a>
+                <div class="m-4 d-flex">
+                  <h2 class="">- {{list.category}} 
+                    <a href="{% url 'list_update' trip.pk list.pk %}" class="m-2 text-decoration-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="dark" class="bi bi-pen" viewBox="0 0 16 16">
+                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                      </svg>
+                    </a>
+                    <a href="{% url 'list_delete' trip.pk list.pk %}" 
+                    class="text-decoration-none text-danger">x</a>
+                  </h2>
                   {% for item in items %}
                     {% if item.category_id == list.id %}
-                    <li>{{item.list_item}}</li>
+                    <li class="">{{item.list_item}}</li>
                     {% endif %}
                   {% endfor %}
                 </div>
-                <a class="btn btn-dark" href="{% url 'item_create' trip.pk list.pk %}" >add item to list +</a>
+                <li>
+                  <a class="text-decoration-none text-dark" 
+                  href="{% url 'item_create' trip.pk list.pk %}" >
+                    add item 
+                    <span class="text-success">+</span>
+                  </a>
+              </li>
               {% endfor %}
             </div>
           </div>

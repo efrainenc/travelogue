@@ -13,6 +13,12 @@ class DateModelForm(forms.Form):
     fields = '__all__'
     widgets = {'my_date_field' : DateInput()}
 
+class APIForm(forms.Form):
+  destination = forms.CharField(label='City, State/Country..')
+  start_date = forms.DateField(label='yyyy-mm-dd')
+  end_date = forms.DateField(label='yyyy-mm-dd')
+
+
 # class YourModelForm(forms.ModelForm):
 #     class Meta:
 #         model = Trip
