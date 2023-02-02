@@ -4,6 +4,7 @@ from .models import Trip, Budget, ListCategory, ListItem
 from .forms import DateForm, DateInput, DateModelForm
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.models import User
+import requests
 
 
 # Create your views here.
@@ -46,10 +47,10 @@ class TripDetail(DetailView):
   # view lists from trip detail
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
-    context["lists"] = ListCategory.objects.filter(trip_id= self.object.id)
     context["budgets"] = Budget.objects.filter(trip_id= self.object.id)
+    context["lists"] = ListCategory.objects.filter(trip_id= self.object.id)
     context["items"] = ListItem.objects.all()
-    # ^^ not very scalable, becomes issue to loop though all items of all users, maybe add user field to li
+    # ^^ not very scalable, becomes issue to loop though all items of all users, maybe add trip fk to items
     # ids = [obj.id for obj in context['lists']]
     # print(f'ALL ids:{ids}')
     #print(f'each id:{id}')
@@ -57,6 +58,20 @@ class TripDetail(DetailView):
 
   def get_queryset(self): # so only current user can view
     return self.model.objects.filter(user=self.request.user)
+  
+  # Weather
+  def fetch_api(request):
+    print('HELLO')
+    if request.method == 'GET':
+      destination = request.GET.get('destination')
+      start_date = request.GET.get('start_date')
+      end_date = request.GET.get('end_date')
+      if destination:
+        response = requests.get(f'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{destination}/{start_date}/{end_date}?unitGroup=us&elements=datetime%2Ctempmax%2Ctempmin%2Ctemp%2Cprecipprob%2Cpreciptype%2Cconditions&include=days&key=KF6PL2ACMMM5KQQEHF5VGYNQX&contentType=json')
+        data = response.json()
+        print(response.status_code)
+        return render(request, "trips/trip_detail.html", {'data': data})
+    return render(request, "trips/trip_detail.html")
 
 # check current user on update
 class TripUpdate(UpdateView):

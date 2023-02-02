@@ -11,24 +11,45 @@
         </div>
         <a href="{% url 'trip_update' trip.pk %}" class="btn btn-dark align-self-center text-center">Update</a>
         <hr>
+        <div>
+          <h2 class="text-center">Weather API</h2>
+          <form method="GET">
+            <input type="text" 
+            name="destination"
+            placeholder="City, State/Country">
+            <input type="text" 
+            name="start_date" 
+            placeholder="YYYY-MM-DD">
+            <input type="text" 
+            name="end_date" 
+            placeholder="YYYY-MM-DD">
+            <input type="submit" 
+            value="submit"
+            class="btn btn-dark">
+          </form>
+            <ul>
+              {% for item in data %}
+                <li>{{ item.address }}</li>
+              {% endfor %}
+            </ul>
+        </div>
+        <hr>
         <div class="text-center">
-            <h2 class="title">Your Budgets:</h2>
-            <a class="btn btn-dark" href="{% url 'budget_create' trip.pk %}" >Create a budget +</a>
+            <h2 class="title">Budgets:<a class="btn btn-dark" href="{% url 'budget_create' trip.pk %}" >+</a></h2>
             <div class="mt-4 gallery">
               {% for budget in budgets %}
-                <div>
-                  <p>{{budget.budget}}</p>
-                  <p>{{budget.user_currency}}->{{budget.trip_currency}}</p>
+                <div class="">
+                  <p>{{budget.budget}}{{budget.user_currency}}</p>
+                  <p>{{budget.trip_currency}}</p>
                   <a href="{% url 'budget_update' trip.pk budget.pk %}" class="btn btn-dark">Edit</a>
                   <a href="{% url 'budget_delete' trip.pk budget.pk %}" class="btn btn-danger">X</a>
                 </div>
               {% endfor %}
             </div>
-            <h2 class="title">Your lists:</h2>
-            <a class="btn btn-dark" href="{% url 'list_create' trip.pk %}" >Create a list +</a>
+            <h2 class="title">Lists:<a class="btn btn-dark" href="{% url 'list_create' trip.pk %}" >+</a></h2>
             <div class="mt-4 gallery">
               {% for list in lists %}
-                <ul>
+                <div class="m-4">
                   {{list.category}}
                   <a href="{% url 'list_update' trip.pk list.pk %}" class="btn btn-dark">Edit</a>
                   <a href="{% url 'list_delete' trip.pk list.pk %}" class="btn btn-danger">X</a>
@@ -37,7 +58,7 @@
                     <li>{{item.list_item}}</li>
                     {% endif %}
                   {% endfor %}
-                </ul>
+                </div>
                 <a class="btn btn-dark" href="{% url 'item_create' trip.pk list.pk %}" >add item to list +</a>
               {% endfor %}
             </div>
