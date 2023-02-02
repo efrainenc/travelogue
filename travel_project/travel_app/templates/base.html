@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,26 +14,29 @@
     </script>
     <style>
     </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}"/>
     {% block extra_head %}
     {% endblock %}
   </head>
   <body>
     {% block body %}
-    <div class="mb-3 p-3">
-      <div class="container justify-content-between  d-flex ">
-          {% if user.is_authenticated %}
-          <div><a class="btn btn-dark" href="{% url 'home' %}">Home</a></div>
-          <div><a class="btn btn-dark" href="{% url 'about' %}">About</a></div>
-          <div><a class="btn btn-dark" href="{% url 'trip_list' %}">Trips</a></div>
-          <div><a class="btn btn-dark" href="{% url 'socialaccount_connections' %}">Settings</a></div>
-          {% else %}
-          <div><a class="btn btn-dark" href="{% url 'home' %}">Home</a></div>
-          <div><a class="btn btn-dark" href="{% url 'about' %}">About</a></div>
-          <div><a class="btn btn-dark" href="{% url 'account_login' %}">Sign In</a></div>
-          <div><a class="btn btn-dark" href="{% url 'account_signup' %}">Sign Up</a></div>
-          {% endif %}
+      <div class="p-3 container justify-content-between  d-flex ">
+        {% if user.is_authenticated %}
+        <div>
+          <a class="p-2 text-decoration-none text-light" href="{% url 'home' %}">Home</a>
+          <a class="p-2 text-decoration-none text-light" href="{% url 'about' %}">About</a>
+        </div>
+        <div>
+          <a class="btn btn-dark" href="{% url 'trip_list' %}">Trips</a>
+          <a class="btn btn-dark" href="{% url 'socialaccount_connections' %}">Settings</a>
+        </div>
+        {% else %}
+        <div><a class="p-2 text-decoration-none text-light" href="{% url 'home' %}">Home</a></div>
+        <div><a class="p-2 text-decoration-none text-light" href="{% url 'about' %}">About</a></div>
+        <div><a class="m-2 btn btn-dark" href="{% url 'account_login' %}">Sign In</a></div>
+        <div><a class="m-2 btn btn-dark" href="{% url 'account_signup' %}">Sign Up</a></div>
+        {% endif %}
       </div>
-    </div>
     {% if messages %}
       <div>
         {% for message in messages %}

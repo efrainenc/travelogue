@@ -52,12 +52,12 @@
                     <a href="{% url 'list_delete' trip.pk list.pk %}" 
                     class="text-decoration-none text-danger">x</a>
                   </h2>
-                  {% for item in items %}
-                    {% if item.category_id == list.id %}
-                    <li class="">{{item.list_item}}</li>
-                    {% endif %}
-                  {% endfor %}
                 </div>
+                {% for item in items %}
+                  {% if item.category_id == list.id %}
+                    <li class="">{{item.list_item}}</li>
+                  {% endif %}
+                {% endfor %}
                 <li>
                   <a class="text-decoration-none text-dark" 
                   href="{% url 'item_create' trip.pk list.pk %}" >

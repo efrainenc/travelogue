@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import environ
 import os
 from pathlib import Path
+import django_heroku
+
+
+django_heroku.settings(locals())
+WSGI_APPLICATION = 'travel_project.wsgi.application'
 
 env = environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
