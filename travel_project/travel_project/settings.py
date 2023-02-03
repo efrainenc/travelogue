@@ -15,8 +15,6 @@ from pathlib import Path
 import django_heroku
 
 
-django_heroku.settings(locals())
-
 env = environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -108,6 +106,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'travel_project.wsgi.application'
 
 
@@ -170,3 +169,5 @@ LOGIN_REDIRECT_URL = 'home'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+django_heroku.settings(locals())
