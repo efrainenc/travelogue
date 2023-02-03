@@ -6,6 +6,14 @@ name = "pypi"
 [packages]
 gunicorn = "*"
 whitenoise = "*"
+django = "*"
+django-allauth = "*"
+django-crispy-forms = "*"
+django-environ = "*"
+django-heroku = "*"
+djangorestframework = "*"
+requests = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
