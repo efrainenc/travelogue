@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-<div class="mt-4">
+<div class="trip_detail mt-4">
     <div class="trip_destination d-flex justify-content-center">
         <h1 class="title">{{trip.destination}}</h1>
         <a href="{% url 'trip_update' trip.pk %}" class="align-self-center m-2">

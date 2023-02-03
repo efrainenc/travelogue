@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="home_container d-flex flex-column justify-content-center">
-        <h1>Welcome</h1>
-        <p style="max-width: 600px;">Lorem Ipsum some random words that make no sense that I cant understand that we use as placeholders for god knows what reason. Loremipsy Um something like that right? What do the numbers mean Mason?</p>
-        {% if user.is_authenticated %}
-            <a class="btn btn-dark" 
-            style="max-width: 350px; max-height: 500px;" 
-            href="{% url 'trip_create' %}" >
-                Start a new trip!
-            </a>
-        {% else %}
-            <a class="btn btn-dark" 
-            style="max-width: 350px; max-height: 500px;" 
-            href="{% url 'account_login' %}" >
-                Start a new trip!
-            </a>
-        {% endif %}
+        <div>
+            <h1>Welcome</h1>
+            <p style="max-width: 600px;">Lorem Ipsum some random words that make no sense that I cant understand that we use as placeholders for god knows what reason. Loremipsy Um something like that right? What do the numbers mean Mason?</p>
+            {% if user.is_authenticated %}
+                <a class="btn btn-dark" 
+                style="max-width: 350px; max-height: 500px;" 
+                href="{% url 'trip_create' %}" >
+                    Start a new trip!
+                </a>
+            {% else %}
+                <a class="btn btn-dark" 
+                style="max-width: 350px; max-height: 500px;" 
+                href="{% url 'account_login' %}" >
+                    Start a new trip!
+                </a>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
