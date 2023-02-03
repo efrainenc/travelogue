@@ -15,8 +15,8 @@ from pathlib import Path
 import django_heroku
 
 
-django_heroku.settings(locals())
-WSGI_APPLICATION = 'travel_project.wsgi.application'
+# django_heroku.settings(locals())
+# WSGI_APPLICATION = 'travel_project.wsgi.application'
 
 env = environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -168,6 +168,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 
-ACCOUNT_LOGOUT_REDIRECT_URL = 'welcome'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

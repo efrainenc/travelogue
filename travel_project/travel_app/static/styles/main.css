@@ -1,3 +1,18 @@
 body{
-  background-color: rgb(196, 221, 255);
+  background-color: rgb(177, 177, 177);
+  color:rgb(22, 22, 22);
+}
+
+.home_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 64px;
+}
+
+.form-field label{
+  color: red;
+}
+.form-field input{
+  color: red;
 }

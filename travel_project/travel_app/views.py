@@ -8,9 +8,6 @@ import requests
 
 
 # Create your views here.
-class Welcome(TemplateView):
-  template_name = 'welcome.html'
-
 class Home(TemplateView):
   template_name = 'home.html'
 
