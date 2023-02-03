@@ -1,5 +1,10 @@
 body{
-  background-color: rgb(177, 177, 177);
+  background-color: rgb(124, 54, 42);
+  background-image: url("https://imgur.com/JkHzCwl.png");
+  background-size: cover;
+  background-position-y: 200;
+  justify-content: center;
+  background-repeat: no-repeat;
   color:rgb(22, 22, 22);
 }
 
@@ -11,8 +16,10 @@ body{
 }
 
 .form-field label{
-  color: red;
+  color: white;
 }
 .form-field input{
-  color: red;
+  color: rgb(42, 70, 88);
+  border-radius: 4px;
+  background-color: transparent;
 }
