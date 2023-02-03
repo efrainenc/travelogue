@@ -2,8 +2,8 @@ body{
   background-color: rgb(124, 54, 42);
   background-image: url("https://imgur.com/JkHzCwl.png");
   background-size: cover;
-  background-position-y: 200;
-  justify-content: center;
+  background-position: 50% 0;
+  height: 100%;
   background-repeat: no-repeat;
   color:rgb(22, 22, 22);
 }
