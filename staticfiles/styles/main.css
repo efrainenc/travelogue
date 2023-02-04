@@ -1,0 +1,63 @@
+body{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(124, 54, 42);
+  background-image: url("https://imgur.com/JkHzCwl.png");
+  background-size: cover;
+  background-position: 50% 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  color:rgb(22, 22, 22);
+  font-weight: 600;
+}
+
+
+.home_container{
+  min-height: 90vh;
+  min-width: 90vw;
+  margin-left: 64px;
+}
+
+.form-field label{
+  color: white;
+}
+.form-field input{
+  color: rgb(42, 70, 88);
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+
+/* Header */
+
+.base_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+/* Trip Body */
+.trip_container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Trip CSS */
+.trip_detail{
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  padding: 16px;
+  width: 50%;
+}
+
+.login_container, .logout_container, .signup_container{
+  height: 100vh;
+  width: 100vw;
+}
