@@ -1,16 +1,18 @@
 body{
   display: flex;
   flex-direction: column;
-  background-color: rgb(124, 54, 42);
-  background-image: url("https://imgur.com/JkHzCwl.png");
-  background-size: cover;
-  background-position: 50% 0;
-  min-height: 100vh;
+  background-color: rgb(71, 71, 71);
+  min-height: 100%;
   min-width: 100vw;
   color:rgb(22, 22, 22);
   font-weight: 600;
 }
 
+.bg-img{
+  opacity: .6;
+  position: absolute;
+  min-width: 100vw;
+}
 
 .home_container{
   min-height: 90vh;
@@ -35,6 +37,8 @@ body{
   justify-content: space-between;
   align-items: center;
   padding: 8px;
+  
+  z-index: 1;
 }
 
 /* Trip Body */
@@ -43,18 +47,20 @@ body{
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  z-index: 1;
 }
 
 /* Trip CSS */
-.trip_detail{
+.trip_detail, .trip_list{
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(199, 199, 199, 0.6);
   border-radius: 16px;
   padding: 16px;
   width: 50%;
+  margin-top: 64px;
 }
 
 .login_container, .logout_container, .signup_container{

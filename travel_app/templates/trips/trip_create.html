@@ -1,23 +1,29 @@
 {% extends 'base.html' %} 
 {% block content %}
-{% if user.is_authenticated %}
-<h1 class="text-center">Start a trip!</h1>
-<div class='d-flex justify-content-center'>
-    <form method = "post">
-      {% csrf_token %} 
-      {% for field in form %}
-        <div class="form-field">
+<div class="trip_create">
+  {% if user.is_authenticated %}
+    <h1 class="text-center">Start a trip!</h1>
+    <div class='d-flex justify-content-center'>
+      <form method = "post">
+        {% csrf_token %} 
+        {% for field in form %}
+          <div class="form-field">
             {{ field.label_tag }}
             {{ field }}
             {% for error in field.errors %}
-                <p class="error">{{ error }}</p>
+              <p class="error">{{ error }}</p>
             {% endfor %}
-        </div>
-    {% endfor %} 
-      <button class='mt-3 btn btn-dark' type="submit" value="Submit">Submit</button>
-    </form>
+          </div>
+        {% endfor %} 
+        <button class='mt-3 btn btn-dark' type="submit" value="Submit">Submit</button>
+      </form>
+    </div>
+  {% else %}
+    <h1 class="text-center">
+      <a href="{% url 'account_login' %}">
+        Sign In!
+      </a>
+    </h1>
+  {% endif %}
 </div>
-{% else %}
-<h1 class="text-center"><a href="{% url 'account_login' %}">Sign In!</a></h1>
-{% endif %}
 {% endblock %}

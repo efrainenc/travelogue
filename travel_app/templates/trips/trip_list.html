@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-  <div class="text-center">
+  <div class="trip_list text-center">
     <h1 class="title">Your Trips</h1>
     <hr>
     <a class="btn btn-dark" href="{% url 'trip_create' %}" >Start a new trip!</a>

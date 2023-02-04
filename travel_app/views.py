@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Trip, Budget, ListCategory, ListItem
-from .forms import DateForm, DateInput, DateModelForm, APIForm
+from .forms import DateForm
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.models import User
 import requests
@@ -29,7 +29,7 @@ class TripList(TemplateView):
 # set current user on create
 class TripCreate(CreateView):
   model = Trip
-  fields = ['destination', 'start_date', 'end_date']
+  form_class = DateForm
   template_name = "trips/trip_create.html"
   success_url = "/trips/"
 
@@ -138,8 +138,6 @@ class ItemDelete(DeleteView):
 
   # def get_queryset(self): # so only current list can view
   #   return self.model.objects.filter(category_id= self.kwargs['list_pk'])
-
-
 
 
 # 'Budget' Views

@@ -18,10 +18,10 @@ class Trip(models.Model):
 
 class Budget(models.Model):
   PURPOSE_CHOICES = (
-    ('Food', 'FOOD'),
-    ('Transportation', 'TRANSPORTATION'),
-    ('Entertainment', 'ENTERTAINMENT'),
-    ('Other', 'OTHER'),
+    ('Food', 'Food'),
+    ('Transportation', 'Transportation'),
+    ('Entertainment', 'Entertainment'),
+    ('Other', 'Other'),
   )
   CURRENCY_CHOICES = (
     ('USD', 'USD'),
