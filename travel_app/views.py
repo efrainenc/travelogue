@@ -145,7 +145,7 @@ class ItemDelete(DeleteView):
 # 'Budget' Views
 class BudgetCreate(CreateView):
   model = Budget
-  fields = ['user_currency', 'trip_currency', 'budget']
+  fields = ['purpose','currency', 'budget']
   template_name = "trips/budgets/budget_create.html"
   success_url = "/trips/"
 
@@ -156,7 +156,7 @@ class BudgetCreate(CreateView):
 class BudgetUpdate(UpdateView):
   model = Budget
   template_name = "trips/budgets/budget_update.html"
-  fields = ['user_currency', 'trip_currency', 'budget']
+  fields = ['purpose','currency', 'budget']
   success_url = "/trips/"
 
   def get_queryset(self): # so only current trip can view

@@ -17,13 +17,27 @@ class Trip(models.Model):
 
 
 class Budget(models.Model):
+  PURPOSE_CHOICES = (
+    ('Food', 'FOOD'),
+    ('Transportation', 'TRANSPORTATION'),
+    ('Entertainment', 'ENTERTAINMENT'),
+    ('Other', 'OTHER'),
+  )
+  CURRENCY_CHOICES = (
+    ('USD', 'USD'),
+    ('CAD', 'CAD'),
+    ('EUR', 'EUR'),
+    ('JPY', 'JPY'),
+    ('GBP', 'GBP'),
+    ('AUD', 'AUD'),
+  )
   trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
-  user_currency = models.CharField(max_length=3)
-  trip_currency = models.CharField(max_length=3, blank=True, null=True)
+  currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default='USD')
+  purpose = models.CharField(max_length=30, choices=PURPOSE_CHOICES, default='other')
   budget = models.IntegerField(blank=True, null=True)
 
   def __str__(self):
-    return self.name
+    return self.purpose
 
 class ListCategory(models.Model):
   trip = models.ForeignKey(Trip, on_delete=models.CASCADE)

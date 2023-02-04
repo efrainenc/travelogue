@@ -28,11 +28,30 @@ body{
 }
 
 
+/* Header */
+
+.base_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+/* Trip Body */
+.trip_container{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Trip CSS */
 .trip_detail{
-  align-self: center;
-  width: 60%;
+  display: flex;
+  flex-direction: column;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 16px;
-  padding: 16px
+  padding: 16px;
+  width: 50%;
 }
