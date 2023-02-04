@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Trip(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   destination = models.CharField(max_length=150)
-  start_date = models.DateField(blank=True, null=True)
+  start_date = models.DateField(blank=True, null=True) # TODO change date forms to show correct format
   end_date = models.DateField(blank=True, null=True)
   created_at = models.DateTimeField(auto_now_add=True)
   
