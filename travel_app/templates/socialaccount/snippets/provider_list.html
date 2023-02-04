@@ -13,26 +13,14 @@
 {% endfor %}
 {% endif %}
 <div class="my-2">
-  <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" 
-     href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
-     <img 
-      src="
-     {% with 'images/'|add:provider.name|add:'.png' as image %}
-     {% static image %}
-     {% endwith %}
-     " alt="{{ provider.name }}" height="50" width="50"/>
-     </a>
-     <img 
-     src="
-    {% with 'images/LinkedIn.png' as image %}
-    {% static image %}
-    {% endwith %}
-    " alt="{{ provider.name }}" height="50" width="50"/>
-    <img 
-     src="
-    {% with 'images/GitHub.png' as image %}
-    {% static image %}
-    {% endwith %}
-    " alt="{{ provider.name }}" height="50" width="50"/>
+    <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" 
+    href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
+     <img src="{% with 'images/Google.png' as image %}{% static image %}{% endwith %}" 
+      lt="{{ provider.name }}" height="50" width="50"/>
+    </a>
+    <img src="{% with 'images/LinkedIn.png' as image %}{% static image %}{% endwith %}" 
+    alt="{{ provider.name }}" height="50" width="50"/>
+    <img src="{% with 'images/GitHub.png' as image %}{% static image %}{% endwith %}" 
+    alt="{{ provider.name }}" height="50" width="50"/>
 </div>
 {% endfor %}
