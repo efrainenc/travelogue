@@ -1,15 +1,33 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Trip, Budget, ListCategory, ListItem
-from .forms import DateForm
+from .forms import DateForm, ContactForm
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.models import User
 import requests
+from django.core.mail import send_mail
 
 
 # Create your views here.
 class Home(TemplateView):
   template_name = 'home.html'
+
+class Contact(TemplateView):
+  template_name = 'contact.html'
+
+  def contact_us(request):
+    if request.method == 'POST':
+      form = ContactForm(request.POST)
+      if form.is_valid():
+        name = form.cleaned_data['name']
+        email = form.cleaned_data['email']
+        subject = form.cleaned_data['subject']
+        message = form.cleaned_data['message']
+        send_mail(subject, message, email, ['your_email@example.com'], fail_silently=False)
+        return redirect('contact_us_success')
+    else:
+      form = ContactForm()
+    return render(request, 'contact_us.html', {'form': form})
 
 # Trip Views
 
@@ -68,7 +86,7 @@ class TripDelete(DeleteView):
   model = Trip
   template_name = "trips/trip_delete.html"
   success_url = "/trips/"
-  
+
   def get_queryset(self): # so only current user can view
     return self.model.objects.filter(user=self.request.user)
 
@@ -155,7 +173,7 @@ class BudgetCreate(CreateView):
   template_name = "trips/budgets/budget_create.html"
 
   def get_success_url(self):
-    return reverse('trip_detail', kwargs={'pk': self.kwargs['trip_pk']})
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['pk']})
 
   def form_valid(self, form):
     form.instance.trip_id = self.kwargs['pk']

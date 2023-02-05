@@ -4,6 +4,7 @@
 {% block content %}
 <div class="logout_container text-center">
   <h3>{% trans 'Are you sure you want to sign out?' %}</h3>
+  <hr>
   <form method="post" action="{% url 'account_logout' %}">
     {% csrf_token %}
     {% if redirect_field_value %}
