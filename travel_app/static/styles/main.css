@@ -6,14 +6,15 @@ body{
   width: 100vw;
   color:rgb(22, 22, 22);
   font-weight: 600;
+  overflow-x: hidden;
 }
 
 .bg-img{
   opacity: .7;
   position: absolute;
   min-width: 450px;
-  width: 100%;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
 }
 
 .home_container{
@@ -61,8 +62,7 @@ body{
 }
 
 /* Trip CSS */
-.logout_container,
-.trip_detail, .trip_list,
+.logout_container, .trip_list,
 .acc_email, .pass_reset, 
 .social_login, .social_connections,
 .trip_form, .budget_form,
@@ -90,13 +90,13 @@ body{
   and (max-device-width: 950px) 
   and (-webkit-min-device-pixel-ratio: 3){
     body{
-      overflow: hidden;
+      overflow-x: hidden;
     }
     .bg-img{
       opacity: .7;
       position: absolute;
       width: auto;
-      height: 100vh;
+      height: 100%;
     }
 
     .login_container, 
