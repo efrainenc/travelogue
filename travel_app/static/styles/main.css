@@ -1,14 +1,18 @@
 body{
-  font-family: 'Italiana', serif;
+  font-family: 'Roboto', serif;
   display: flex;
   flex-direction: column;
   background-color: rgb(71, 71, 71);
   height: 100vh;
   width: 100vw;
   color:rgb(22, 22, 22);
-  font-weight: bold;
+  font-weight: 600;
   letter-spacing: .08rem;
   overflow-x: hidden;
+}
+h1, h2{
+  font-family: 'Italiana', serif;
+  font-weight: 700;
 }
 
 .bg-img{
@@ -27,7 +31,7 @@ body{
 
 /* Forms */
 .form-field label{
-  color: white;
+  color: rgb(63, 63, 63);
   margin: 4px;
 }
 .form-field input{
@@ -143,4 +147,18 @@ body{
 footer p{
   color: whitesmoke;
   margin: 6px;
+  font-size: 16px;
+}
+
+header a{
+  margin: 0 8px;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:#202020;
+  height: 1px;
 }
