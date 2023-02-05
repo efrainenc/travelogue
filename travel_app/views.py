@@ -67,11 +67,12 @@ class TripUpdate(UpdateView):
 class TripDelete(DeleteView):
   model = Trip
   template_name = "trips/trip_delete.html"
-
+  success_url = "/trips/"
+  
   def get_queryset(self): # so only current user can view
     return self.model.objects.filter(user=self.request.user)
 
-  success_url = "/trips/"
+
 
 
 # 'List' Views
@@ -90,7 +91,9 @@ class ListUpdate(UpdateView):
   model = ListCategory
   template_name = "trips/lists/list_update.html"
   fields = ['category']
-  success_url = "/trips/"
+
+  def get_success_url(self):
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['trip_pk']})
 
   def get_queryset(self): # so only current trip can view
     return self.model.objects.filter(trip_id= self.kwargs['trip_pk'])
@@ -98,7 +101,9 @@ class ListUpdate(UpdateView):
 class ListDelete(DeleteView):
   model = ListCategory
   template_name = "trips/lists/list_delete.html"
-  success_url = "/trips/"
+
+  def get_success_url(self):
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['trip_pk']})
 
   def get_queryset(self): # so only current trip can view
     return self.model.objects.filter(trip_id= self.kwargs['trip_pk'])
@@ -110,7 +115,9 @@ class ItemCreate(CreateView):
   model = ListItem
   fields = ['list_item']
   template_name = "trips/lists/items/item_create.html"
-  success_url = "/trips/"
+
+  def get_success_url(self):
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['trip_pk']})
 
   # def get_queryset(self): # so only current list can view
   #   return self.model.objects.filter(category_id= self.kwargs['item_pk'])
@@ -123,7 +130,9 @@ class ItemUpdate(UpdateView):
   model = ListItem
   template_name = "trips/lists/items/item_update.html"
   fields = ['list_item']
-  success_url = "/trips/"
+
+  def get_success_url(self):
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['trip_pk']})
 
   # def get_queryset(self): # so only current list can view
   #   return self.model.objects.filter(category_id= self.kwargs['item_pk'])
@@ -131,7 +140,9 @@ class ItemUpdate(UpdateView):
 class ItemDelete(DeleteView):
   model = ListItem
   template_name = "trips/lists/items/item_delete.html"
-  success_url = "/trips/"
+
+  def get_success_url(self):
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['trip_pk']})
 
   # def get_queryset(self): # so only current list can view
   #   return self.model.objects.filter(category_id= self.kwargs['list_pk'])
@@ -142,7 +153,9 @@ class BudgetCreate(CreateView):
   model = Budget
   fields = ['purpose','currency', 'budget']
   template_name = "trips/budgets/budget_create.html"
-  success_url = "/trips/"
+
+  def get_success_url(self):
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['trip_pk']})
 
   def form_valid(self, form):
     form.instance.trip_id = self.kwargs['pk']
@@ -152,7 +165,9 @@ class BudgetUpdate(UpdateView):
   model = Budget
   template_name = "trips/budgets/budget_update.html"
   fields = ['purpose','currency', 'budget']
-  success_url = "/trips/"
+
+  def get_success_url(self):
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['trip_pk']})
 
   def get_queryset(self): # so only current trip can view
     return self.model.objects.filter(trip_id= self.kwargs['trip_pk'])
@@ -160,7 +175,9 @@ class BudgetUpdate(UpdateView):
 class BudgetDelete(DeleteView):
   model = Budget
   template_name = "trips/budgets/budget_delete.html"
-  success_url = "/trips/"
+
+  def get_success_url(self):
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['trip_pk']})
 
   def get_queryset(self): # so only current trip can view
     return self.model.objects.filter(trip_id= self.kwargs['trip_pk'])
