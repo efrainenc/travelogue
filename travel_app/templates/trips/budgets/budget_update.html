@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
-{% if user.is_authenticated %}
-<div class="d-flex flex-column align-items-center">
-  <h1 class="pt-3">Update budget of {{budget.budget}}{{budget.currency}}</h1>
-  <form action="" method="post" enctype="multipart/form-data"> 
-    {% csrf_token %}
-    {{form.as_p}} 
-    <input class="btn btn-dark" type="submit" value="Submit" />
-  </form>
+<div class="budget_form">
+  {% if user.is_authenticated %}
+    <h1 class="pt-3">Update "{{budget.purpose}}" budget</h1>
+    <form class="d-flex flex-column" method="post" enctype="multipart/form-data"> 
+      {% csrf_token %}
+      {% for field in form %}
+          <div class="form-field">
+            {{ field.label_tag }}
+            {{ field }}
+            {% for error in field.errors %}
+              <p class="error">{{ error }}</p>
+            {% endfor %}
+          </div>
+        {% endfor %} 
+      <input class="btn btn-dark mt-4" type="submit" value="Submit" />
+    </form>
   {% else %}
-  <h1 class="text-center"><a href="{% url 'account_login' %}">Sign In!</a></h1>
+    <h1 class="text-center"><a href="{% url 'account_login' %}">Sign In!</a></h1>
   {% endif %}
 </div>
 {% endblock %}

@@ -1,10 +1,10 @@
 {% extends 'base.html' %} 
 {% block content %}
-<div class="trip_create">
+<div class="trip_form">
   {% if user.is_authenticated %}
     <h1 class="text-center">Start a trip!</h1>
     <div class='d-flex justify-content-center'>
-      <form method = "post">
+      <form class="d-flex flex-column" method="post">
         {% csrf_token %} 
         {% for field in form %}
           <div class="form-field">
@@ -15,7 +15,7 @@
             {% endfor %}
           </div>
         {% endfor %} 
-        <button class='mt-3 btn btn-dark' type="submit" value="Submit">Submit</button>
+        <input class="btn btn-dark mt-4" type="submit" value="Submit" />
       </form>
     </div>
   {% else %}

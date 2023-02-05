@@ -2,16 +2,19 @@ body{
   display: flex;
   flex-direction: column;
   background-color: rgb(71, 71, 71);
-  min-height: 100%;
-  min-width: 100vw;
+  height: 100vh;
+  width: 100vw;
   color:rgb(22, 22, 22);
   font-weight: 600;
 }
 
 .bg-img{
-  opacity: .6;
+  opacity: .7;
   position: absolute;
-  min-width: 100vw;
+  min-width: 450px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .home_container{
@@ -24,9 +27,8 @@ body{
   color: white;
 }
 .form-field input{
-  color: rgb(42, 70, 88);
   border-radius: 4px;
-  background-color: transparent;
+  background-color: rgba(134, 134, 134, 0.4);
 }
 
 
@@ -36,8 +38,13 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
-  
+  padding: 16px;
+  font-size: 2.4vw;
+  z-index: 1;
+}
+
+.messages{
+  color: whitesmoke;
   z-index: 1;
 }
 
@@ -47,23 +54,42 @@ body{
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  /* justify-content: center; */
   align-items: center;
   z-index: 1;
 }
 
 /* Trip CSS */
-.trip_detail, .trip_list{
+.trip_detail, .trip_list, 
+.login_container, .logout_container, 
+.signup_container, .acc_email,
+.pass_reset, .social_login,
+.social_connections, .trip_form,
+.budget_form, .list_form,
+.item_form{
   display: flex;
   flex-direction: column;
-  background-color: rgba(199, 199, 199, 0.6);
-  border-radius: 16px;
+  align-items: center;
+  background-color: rgba(199, 199, 199, 0.9);
+  border-radius: 12px;
   padding: 16px;
-  width: 50%;
-  margin-top: 64px;
+  min-width: 50%;
+  margin-top: 10%;
 }
 
 .login_container, .logout_container, .signup_container{
-  height: 100vh;
-  width: 100vw;
+  justify-self: center;
+  align-self: center;
+}
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 950px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+    .login_container, .logout_container, .signup_container{
+      background-color: rgba(199, 199, 199, 0.8);
+      width: 100vw;
+      scale: 1.5;
+      margin-top: 50%;
+    }
 }

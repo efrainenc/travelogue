@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-{% if user.is_authenticated %}
-  <div class="trip_list text-center">
+<div class="trip_list text-center">
+  {% if user.is_authenticated %}
     <h1 class="title">Your Trips</h1>
     <hr>
     <a class="btn btn-dark" href="{% url 'trip_create' %}" >Start a new trip!</a>
@@ -18,8 +18,10 @@
         </a>
       {% endfor %}
     </div>
-  </div>
-{% else %}
-<h1 class="text-center"><a href="{% url 'account_login' %}">Sign In!</a></h1>
-{% endif %}
+  {% else %}
+    <h1 class="text-center">
+      <a href="{% url 'account_login' %}">Sign In!</a>
+    </h1>
+  {% endif %}
+</div>
 {% endblock %}
