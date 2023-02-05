@@ -8,7 +8,7 @@
         <h1>{% trans "Sign Up" %}</h1>
     </div>
     <div class="row">
-        <div class="col-md-4 offset-md-4">
+        <div class="col-lg-8">
             <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
             {{ form|crispy }}

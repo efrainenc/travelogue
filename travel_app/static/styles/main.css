@@ -62,6 +62,7 @@ body{
 }
 
 /* Trip CSS */
+.trip_detail,
 .logout_container, .trip_list,
 .acc_email, .pass_reset, 
 .social_login, .social_connections,
@@ -74,28 +75,29 @@ body{
   border-radius: 12px;
   padding: 16px;
   min-width: 40%;
-  margin-top: 10%;
+  margin-top: 4%;
 }
 
 .login_container, .signup_container{
   background-color: rgba(211, 211, 211, 0.9);
   border-radius: 12px;
   padding: 16px;
-  min-width: 80%;
+  width: 30%;
   margin-top: 10%;
+}
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen 
   and (min-device-width: 375px) 
   and (max-device-width: 950px) 
   and (-webkit-min-device-pixel-ratio: 3){
-    body{
-      overflow-x: hidden;
-    }
     .bg-img{
       opacity: .7;
       position: absolute;
-      width: auto;
       height: 100%;
     }
 
