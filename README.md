@@ -1,9 +1,13 @@
-# Capstone 
-
-Project Title and Description: A clear and concise title and description of the project.
+# Travel Planner
 
 ## Tech Used
-
+```
+Django
+PostgreSQL
+Python
+Bootstrap
+Heroku
+```
 ## Images
 ### Home
 ![Home](https://i.gyazo.com/d0d2102f27dfaf52c7c5ddbfb6892167.jpg)
@@ -16,18 +20,14 @@ Project Title and Description: A clear and concise title and description of the 
 ### Plan Trip
 ![Plan Trip](https://i.gyazo.com/316fe76c68ea3f6f8119e050635a5ec3.jpg)
 
-
-## Installation:
-
 ## Usage:
 All you have to do is Sign In/Up and click to start your first trip. Once you enter the Destination, Start and End Dates you can then begin planning. There is a section to organize your budgets by category, as well as a section to create lists of your liking.
 e.g. Reminders, Things to Bring, Activities to do
 
-## Contributing: 
-Include how to report bugs, request features, and submit pull requests.
-
-## Contact:
-
+## Stretch Goals
+Currency Exchange
+Google Calendar
+Google Maps
 
 ## Planning
 
