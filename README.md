@@ -8,7 +8,36 @@ Python
 Bootstrap
 Heroku
 ```
-## Usage:
+
+## Installation
+1. Create a virtual environment: 
+Open your terminal and run to install the virtualenv package.
+```
+pip install virtualenv
+```
+Create the virtual environment: 
+Run the following command in your terminal, replacing myenv with the desired name of your virtual environment:
+```
+virtualenv myenv 
+```
+2. Activate the virtual environment: 
+Run the following command in your terminal:
+```
+source myenv/bin/activate
+```
+3. Once the virtual environment is activated, any packages you install using pip will be installed in the virtual environment and will not affect other projects on your system. To deactivate the virtual environment, simply run
+```
+deactivate.
+```
+
+2. Install dependencies: Navigate to the project directory and run pip install -r requirements.txt to install all the required dependencies.
+
+3. Configure the settings: Open the settings.py file and make sure the database, email and other configurations are set up properly.
+
+4. Run migrations: Run python manage.py migrate to create the necessary tables in your database.
+
+5. Start the development server: Use the command python manage.py runserver to start the development server and access your application at http://localhost:8000.
+## Usage
 All you have to do is Sign In/Up and click to start your first trip. Once you enter the Destination, Start and End Dates you can then begin planning. There is a section to organize your budgets by category, as well as a section to create lists of your liking.
 e.g. Reminders, Things to Bring, Activities to do
 ### Home
@@ -23,8 +52,9 @@ e.g. Reminders, Things to Bring, Activities to do
 ![Plan Trip](https://i.gyazo.com/316fe76c68ea3f6f8119e050635a5ec3.jpg)
 
 ## Stretch Goals
-* Currency Exchange
+* Trip Weather
 * Google Calendar
+* Currency Exchange
 * Google Maps
 
 ## Planning
