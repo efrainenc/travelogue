@@ -36,7 +36,11 @@ Navigate to the project directory and run pip install -r requirements.txt to ins
 
 7. Run migrations: Run python manage.py migrate to create the necessary tables in your database.
 
-8. Start the development server: Use the command python manage.py runserver to start the development server and access your application at http://localhost:8000.
+8. Start the development server: 
+Use this command to start the development server and access your application at http://localhost:8000.
+```
+python manage.py runserver
+```
 
 ## Usage
 ### Home
