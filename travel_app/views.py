@@ -23,11 +23,11 @@ class Contact(TemplateView):
         email = form.cleaned_data['email']
         subject = form.cleaned_data['subject']
         message = form.cleaned_data['message']
-        send_mail(subject, message, email, ['your_email@example.com'], fail_silently=False)
+        send_mail(subject, message, email, ['efraine387@gmail.com'], fail_silently=False)
         return redirect('contact_us_success')
     else:
       form = ContactForm()
-    return render(request, 'contact_us.html', {'form': form})
+    return render(request, 'contact.html', {'form': form})
 
 # Trip Views
 

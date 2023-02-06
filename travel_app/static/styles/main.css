@@ -15,6 +15,25 @@ h1, h2{
   font-weight: 700;
 }
 
+footer p{
+  color: whitesmoke;
+  margin: 6px;
+  font-size: 16px;
+}
+
+header a{
+  margin: 0 8px;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:#202020;
+  height: 1px;
+}
+
 .bg-img{
   opacity: .7;
   position: absolute;
@@ -42,7 +61,6 @@ h1, h2{
 
 
 /* Header */
-
 .base_container{
   display: flex;
   justify-content: space-between;
@@ -126,7 +144,7 @@ h1, h2{
     }
 }
 
-
+/* Google Button */
 .google-btn {
   font-family: 'Product Sans', sans-serif;        
   font-weight: 600;                                      
@@ -142,23 +160,4 @@ h1, h2{
 .google-logo {
   height: 20px;
   margin-right: 10px;
-}
-
-footer p{
-  color: whitesmoke;
-  margin: 6px;
-  font-size: 16px;
-}
-
-header a{
-  margin: 0 8px;
-}
-
-hr {
-  border: 0;
-  clear:both;
-  display:block;
-  width: 96%;               
-  background-color:#202020;
-  height: 1px;
 }
