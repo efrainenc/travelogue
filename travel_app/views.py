@@ -24,7 +24,7 @@ class Contact(TemplateView):
         subject = form.cleaned_data['subject']
         message = form.cleaned_data['message']
         send_mail(subject, message, email, ['efraine387@gmail.com'], fail_silently=False)
-        return redirect('contact_us_success')
+        return redirect('home')
     else:
       form = ContactForm()
     return render(request, 'contact.html', {'form': form})
@@ -41,7 +41,6 @@ class TripList(TemplateView):
     context["trips"] = Trip.objects.filter(user_id= self.request.user.id)
     return context
 
-# set current user on create
 class TripCreate(CreateView):
   model = Trip
   form_class = DateForm
@@ -69,7 +68,6 @@ class TripDetail(DetailView):
     return self.model.objects.filter(user=self.request.user)
   
 
-# check current user on update
 class TripUpdate(UpdateView):
   model = Trip
   template_name = "trips/trip_update.html"
@@ -79,9 +77,8 @@ class TripUpdate(UpdateView):
     return self.model.objects.filter(user=self.request.user)
   
   def get_success_url(self):
-    return reverse('trip_detail', kwargs={'pk': self.object.pk})
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['trip_pk']})
 
-# check current user on delete
 class TripDelete(DeleteView):
   model = Trip
   template_name = "trips/trip_delete.html"
@@ -91,15 +88,14 @@ class TripDelete(DeleteView):
     return self.model.objects.filter(user=self.request.user)
 
 
-
-
 # 'List' Views
-
 class ListCreate(CreateView):
   model = ListCategory
   fields = ['category']
   template_name = "trips/lists/list_create.html"
-  success_url = "/trips/"
+  
+  def get_success_url(self):
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['pk']})
 
   def form_valid(self, form):
     form.instance.trip_id = self.kwargs['pk']

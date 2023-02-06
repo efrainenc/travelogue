@@ -8,7 +8,7 @@
         {% csrf_token %}
         <div class="buttons text-center">
             <input class="btn btn-danger" type="submit" value="Confirm" />
-            <a class="btn btn-dark" href="">Cancel</a>
+            <a class="btn btn-dark" href="#" onclick="window.history.back();">Cancel</a>
         </div>
     </form>
     {% else %}
