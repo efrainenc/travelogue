@@ -15,6 +15,11 @@ h1, h2{
   font-weight: 700;
 }
 
+form{
+  display: flex;
+  flex-direction: column;
+}
+
 footer p{
   color: whitesmoke;
   margin: 6px;
@@ -86,7 +91,7 @@ hr {
 }
 
 /* Trip CSS */
-.trip_detail,
+.trip_detail, .contact_container,
 .logout_container, .trip_list,
 .acc_email, .pass_reset, 
 .social_login, .social_connections,

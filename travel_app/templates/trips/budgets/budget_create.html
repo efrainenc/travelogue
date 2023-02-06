@@ -3,6 +3,7 @@
 <div class="budget_form">
   {% if user.is_authenticated %}
     <h1 class="text-center">Create a new budget</h1>
+    <hr>
     <form class="d-flex flex-column" method ="post">
       {% csrf_token %} 
       {% for field in form %}

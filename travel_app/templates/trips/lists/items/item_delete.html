@@ -3,6 +3,7 @@
 <div class="item_form">
     {% if user.is_authenticated %}
     <h1 class="title">Are you sure you want to delete the list item {{item.list_item}}?</h1>
+    <hr>
     <form method="post">
         {% csrf_token %}
         <div class="buttons text-center">

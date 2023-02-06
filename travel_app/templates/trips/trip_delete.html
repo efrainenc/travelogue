@@ -3,6 +3,7 @@
 <div class="trip_form">
     {% if user.is_authenticated %}
     <h1 class="title">Are you sure you want to end your trip to {{trip.destination}}?</h1>
+    <hr>
     <form method="post">
         {% csrf_token %}
         <div class="buttons text-center">

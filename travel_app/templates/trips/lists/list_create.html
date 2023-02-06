@@ -3,6 +3,7 @@
 <div class="list_form">
   {% if user.is_authenticated %}
     <h1 class="text-center">Create a list</h1>
+    <hr>
     <div class='d-flex justify-content-center'>
         <form class="d-flex flex-column" method="post">
           {% csrf_token %} 

@@ -3,6 +3,7 @@
 <div class="budget_form">
   {% if user.is_authenticated %}
     <h1 class="pt-3">Update "{{budget.purpose}}" budget</h1>
+    <hr>
     <form class="d-flex flex-column" method="post" enctype="multipart/form-data"> 
       {% csrf_token %}
       {% for field in form %}
