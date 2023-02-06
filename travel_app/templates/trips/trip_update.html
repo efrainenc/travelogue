@@ -4,19 +4,21 @@
 <div class="trip_form">
   <h1 class="pt-3">Update {{trip.destination}}</h1>
   <hr>
-  <form class="d-flex flex-column" method="post" enctype="multipart/form-data"> 
-    {% csrf_token %}
-    {% for field in form %}
-      <div class="form-field">
-        {{ field.label_tag }}
-        {{ field }}
-        {% for error in field.errors %}
-          <p class="error">{{ error }}</p>
-        {% endfor %}
-      </div>
-    {% endfor %} 
-    <input class="btn btn-dark mt-4" type="submit" value="Submit" />
-  </form>
+  <div class='d-flex justify-content-center'>
+    <form class="d-flex flex-column" method="post">
+      {% csrf_token %} 
+      {% for field in form %}
+        <div class="form-field">
+          {{ field.label_tag }}
+          {{ field }}
+          {% for error in field.errors %}
+            <p class="error">{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endfor %} 
+      <input class="btn btn-dark mt-4" type="submit" value="Submit" />
+    </form>
+  </div>
   {% else %}
   <h1 class="text-center"><a href="{% url 'account_login' %}">Sign In!</a></h1>
   {% endif %}

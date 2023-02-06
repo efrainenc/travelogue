@@ -70,14 +70,14 @@ class TripDetail(DetailView):
 
 class TripUpdate(UpdateView):
   model = Trip
+  form_class = DateForm
   template_name = "trips/trip_update.html"
-  fields = ['destination', 'start_date', 'end_date']
 
   def get_queryset(self): # so only current user can view
     return self.model.objects.filter(user=self.request.user)
   
   def get_success_url(self):
-    return reverse('trip_detail', kwargs={'pk': self.kwargs['trip_pk']})
+    return reverse('trip_detail', kwargs={'pk': self.kwargs['pk']})
 
 class TripDelete(DeleteView):
   model = Trip
