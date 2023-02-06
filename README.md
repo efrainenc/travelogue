@@ -30,11 +30,17 @@ source myenv/bin/activate
 deactivate.
 ```
 5. Install dependencies: 
-Navigate to the project directory and run pip install -r requirements.txt to install all the required dependencies.
+Navigate to the project directory and run this command to install all the required dependencies.
+```
+pip install -r requirements.txt
+```
+6. Configure the settings: 
+Open the settings.py file and make sure the database, email and other configurations are set up properly.
 
-6. Configure the settings: Open the settings.py file and make sure the database, email and other configurations are set up properly.
-
-7. Run migrations: Run python manage.py migrate to create the necessary tables in your database.
+7. Run migrations by running this command to create the necessary tables in your database.
+```
+python manage.py migrate
+```
 
 8. Start the development server: 
 Use this command to start the development server and access your application at http://localhost:8000.
