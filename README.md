@@ -1,4 +1,5 @@
-# Travel Planner
+# Travelogue
+[Link to site](https://travelogue.herokuapp.com)
 
 ## Tech Used
 ```
