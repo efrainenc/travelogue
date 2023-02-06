@@ -1,5 +1,6 @@
 # Travelogue
 [Link to site](https://travelogue.herokuapp.com)
+Travelogue is for people that enjoy to travel but mainly for my partner who is a flight attendant so she can plan and track her trips!
 
 ## Tech Used
 ```
