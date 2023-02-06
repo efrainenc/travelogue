@@ -8,7 +8,9 @@ Python
 Bootstrap
 Heroku
 ```
-## Images
+## Usage:
+All you have to do is Sign In/Up and click to start your first trip. Once you enter the Destination, Start and End Dates you can then begin planning. There is a section to organize your budgets by category, as well as a section to create lists of your liking.
+e.g. Reminders, Things to Bring, Activities to do
 ### Home
 ![Home](https://i.gyazo.com/d0d2102f27dfaf52c7c5ddbfb6892167.jpg)
 ### Sign In
@@ -20,14 +22,10 @@ Heroku
 ### Plan Trip
 ![Plan Trip](https://i.gyazo.com/316fe76c68ea3f6f8119e050635a5ec3.jpg)
 
-## Usage:
-All you have to do is Sign In/Up and click to start your first trip. Once you enter the Destination, Start and End Dates you can then begin planning. There is a section to organize your budgets by category, as well as a section to create lists of your liking.
-e.g. Reminders, Things to Bring, Activities to do
-
 ## Stretch Goals
-Currency Exchange
-Google Calendar
-Google Maps
+* Currency Exchange
+* Google Calendar
+* Google Maps
 
 ## Planning
 
