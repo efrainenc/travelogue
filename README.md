@@ -53,7 +53,7 @@ python manage.py runserver
 ## Usage
 ### Home
 All you have to do is Sign In/Up or click to start your first trip.
-![Home](https://i.gyazo.com/d0d2102f27dfaf52c7c5ddbfb6892167.jpg)
+![Home](https://i.gyazo.com/a58e1fdb0a1a097b63abbab19b7741cd.jpg)
 ### Sign In
 You can choose to create an account with Google or Sign in if you are an existing user.
 ![Sign In](https://i.gyazo.com/16e787fb06a09bb15dc5ac8b7ce04c52.jpg)
