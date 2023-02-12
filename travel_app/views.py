@@ -51,7 +51,7 @@ class TripCreate(CreateView):
     form.instance.user_id = self.request.user.id
     return super().form_valid(form)
 
-class TripDetail(DetailView):
+class TripDetail(DetailView): # TODO ADD THE WEATHER API AND GOOGLE CALENDAR
   model = Trip
   template_name = "trips/trip_detail.html" 
 
