@@ -61,7 +61,8 @@ class TripDetail(DetailView):
     context["budgets"] = Budget.objects.filter(trip_id= self.object.id)
     context["lists"] = ListCategory.objects.filter(trip_id= self.object.id)
     context["items"] = ListItem.objects.all()
-    # ^^ not very scalable, becomes issue to loop though all items of all users, maybe add trip fk to items
+    # ^^ not very scalable, becomes issue to loop though all items 
+    # of all users, maybe add trip fk to items
     return context
 
   def get_queryset(self): # so only current user can view
