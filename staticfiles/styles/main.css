@@ -1,16 +1,51 @@
 body{
+  font-family: 'Roboto', serif;
   display: flex;
   flex-direction: column;
-  background-color: rgb(124, 54, 42);
-  background-image: url("https://imgur.com/JkHzCwl.png");
-  background-size: cover;
-  background-position: 50% 0;
-  min-height: 100vh;
-  min-width: 100vw;
+  background-color: rgb(71, 71, 71);
+  height: 100vh;
+  width: 100vw;
   color:rgb(22, 22, 22);
   font-weight: 600;
+  letter-spacing: .08rem;
+  overflow-x: hidden;
+}
+h1, h2{
+  font-family: 'Italiana', serif;
+  font-weight: 700;
 }
 
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+footer p{
+  color: whitesmoke;
+  margin: 6px;
+  font-size: 16px;
+}
+
+header a{
+  margin: 0 8px;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:#202020;
+  height: 1px;
+}
+
+.bg-img{
+  opacity: .7;
+  position: absolute;
+  min-width: 450px;
+  width: 100vw;
+  height: 100vh;
+}
 
 .home_container{
   min-height: 90vh;
@@ -18,23 +53,31 @@ body{
   margin-left: 64px;
 }
 
+/* Forms */
 .form-field label{
-  color: white;
+  color: rgb(63, 63, 63);
+  margin: 4px;
 }
 .form-field input{
-  color: rgb(42, 70, 88);
+  margin: 4px;
   border-radius: 4px;
-  background-color: transparent;
+  background-color: rgba(134, 134, 134, 0.4);
 }
 
 
 /* Header */
-
 .base_container{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
+  padding: 16px;
+  font-size: 24px;
+  z-index: 1;
+}
+
+.messages{
+  color: whitesmoke;
+  z-index: 1;
 }
 
 /* Trip Body */
@@ -43,21 +86,84 @@ body{
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Trip CSS */
+.trip_detail, .contact_container,
+.logout_container, .trip_list,
+.acc_email, .pass_reset, 
+.social_login, .social_connections,
+.trip_form, .budget_form,
+.list_form, .item_form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(211, 211, 211, 0.9);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 40%;
+  margin: 4%;
+}
+
+.login_container, .signup_container{
+  background-color: rgba(211, 211, 211, 0.9);
+  border-radius: 12px;
+  padding: 16px;
+  width: 30%;
+  min-width: 400px;
+  margin-top: 6%;
+}
+.row{
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Trip CSS */
-.trip_detail{
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 16px;
-  padding: 16px;
-  width: 50%;
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 950px) 
+  and (-webkit-min-device-pixel-ratio: 3){
+    .bg-img{
+      opacity: .7;
+      position: absolute;
+      height: 100%;
+    }
+
+    .login_container, 
+    .logout_container, 
+    .signup_container{
+      background-color: rgba(151, 151, 151, 0);
+      width: 100%;
+      height: 100%;
+    }
+    .login_container .row, 
+    .logout_container .row, 
+    .signup_container .row{
+      margin-top: 10%;
+    }
+    .login_container .form_header, 
+    .logout_container .form_header, 
+    .signup_container .form_header{
+      margin-top: 25%;
+    }
 }
 
-.login_container, .logout_container, .signup_container{
-  height: 100vh;
-  width: 100vw;
+/* Google Button */
+.google-btn {
+  font-family: 'Product Sans', sans-serif;        
+  font-weight: 600;                                      
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border-color: rgb(189, 189, 189);
+  color: rgb(70, 70, 70);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.google-logo {
+  height: 20px;
+  margin-right: 10px;
 }
